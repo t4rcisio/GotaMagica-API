@@ -1,0 +1,28 @@
+{
+  "name": "gotamagica-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t4rcisio/GotaMagica-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t4rcisio/GotaMagica-API/issues"
+  },
+  "homepage": "https://github.com/t4rcisio/GotaMagica-API#readme",
+  "dependencies": {
+    "next": "^12.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
