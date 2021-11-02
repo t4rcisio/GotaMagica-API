@@ -1,0 +1,1 @@
+# GotaMagica-API
