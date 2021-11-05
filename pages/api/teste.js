@@ -20,7 +20,7 @@ export default async function(req, res){
         const {password} = req.body;
 
         if(!name || !birthday || !cpf || !email || !phone || !zipcode || !uf || !city || !neighborhood || !address || !password){
-            res.status(400).json({ error: "Missing data"})
+            res.status(400).json({ error: "Missing data", data: req.body})
             return
         }
 
