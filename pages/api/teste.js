@@ -2,8 +2,16 @@ import connect from "../../utils/database"
 
 
 
+function badRequest(res){
+    res.status(400).json({ error: "Missing data", sucess: false})
+    return
+}
+
+
 
 export default async function(req, res){
+
+
 
     if(req.method == "POST"){
 
@@ -20,8 +28,7 @@ export default async function(req, res){
         const {password} = req.body;
 
         if(!name || !birthday || !cpf || !email || !phone || !zipcode || !uf || !city || !neighborhood || !address || !password){
-            res.status(400).json({ error: "Missing data", sucess: false})
-            return
+            badRequest(res)
         }
 
         const {db} = await connect()
@@ -40,11 +47,38 @@ export default async function(req, res){
 
         })
 
-        res.status(200).json({id: response.insertedId, sucess: response.acknowledged, body: req.body})
-    }
-    else{
+        res.status(200).json({id: response.insertedId, sucess: response.acknowledged})
     
-        res.status(200).json({id: "Method don't avail yet"})
+    }
+
+
+    else{
+        if(req.method == "GET"){
+
+
+            const {email, password} = req.body
+
+            if(!email || !password){
+                badRequest(res)
+            }
+
+            const {db} = await connect()
+
+            const response = await db.collection("users").findOne({email: email, password : password})
+
+            if(response){
+                const email = response.email
+                const password = response.password
+
+                res.status(200).json({sucess: true, email: email, password : password})
+
+            }else{
+                res.status(200).json({sucess: false})
+            }
+
+        }else{
+            res.status(200).json({error: "Method don't avail yet"})
+        }
 
     }
 
