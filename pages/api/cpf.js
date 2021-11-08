@@ -2,7 +2,7 @@ import connect from "../../utils/database";
 
 
 function badRequest(res){
-    res.status(400).jsn({error: "Bad request"})
+    res.status(400).json({error: "Bad request"})
     return
 }
 
