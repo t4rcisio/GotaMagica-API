@@ -29,10 +29,10 @@ export default async function(req, res){
 
         if(!name || !birthday || !cpf || !email || !phone || !zipcode || !uf || !city || !neighborhood || !address || !password){
             badRequest(res)
-        }
+        }else{
 
-        const {db} = await connect()
-        const response  = await db.collection("users").insertOne({
+            const {db} = await connect()
+            const response  = await db.collection("users").insertOne({
             name: name,
             birthday: birthday,
             cpf: cpf,
@@ -43,11 +43,11 @@ export default async function(req, res){
             city: city,
             neighborhood: neighborhood,
             address: address,
-            password: password
+            password: password})
 
-        })
+            res.status(200).json({id: response.insertedId, sucess: response.acknowledged})
 
-        res.status(200).json({id: response.insertedId, sucess: response.acknowledged})
+        }
     
     }else{
         res.status(200).json({error: "Method don't avail yet"})
