@@ -9,7 +9,7 @@ function badRequest(res){
 
 export default async function(req, res){
 
-    if(req.method == "GET"){
+    if(req.method == "POST"){
 
         const {cpf} = req.body
 
