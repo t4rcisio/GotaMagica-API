@@ -30,7 +30,7 @@ export default async function(req, res){
             res.status(200).json({sucess: true, id: _id, email: email, password : password})
 
         }else{
-            res.status(200).json({sucess: false})
+            res.status(400).json({sucess: false})
         }
 
     }
