@@ -34,6 +34,8 @@ export default async function(req, res){
             res.status(400).json({sucess: false})
         }
 
+    }else{
+        badRequest(res)
     }
 
 
