@@ -26,8 +26,9 @@ export default async function(req, res){
             const email = response.email
             const password = response.password
             const _id = response._id
+            const name = response.name
 
-            res.status(200).json({sucess: true, id: _id, email: email, password : password})
+            res.status(200).json({sucess: true, id: _id, email: email, password : password,name : name })
 
         }else{
             res.status(400).json({sucess: false})
