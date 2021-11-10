@@ -3,7 +3,7 @@ function badRequest(res){
     return
 }
 
-var resoponse
+var resoponse = "no data"
 
 export default function(req, res){
     
